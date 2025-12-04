@@ -1,0 +1,8 @@
+{
+  "name": "FARI-AI",
+  "description": "FARI-AI is a next-generation AI assistant with a futuristic, desktop-style interface. Engage with powerful AI personas in a dynamic and visually stunning environment.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}

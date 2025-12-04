@@ -1,0 +1,139 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar to match the design */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Theme-aware scrollbar colors */
+html.dark ::-webkit-scrollbar-track { background: #0A0A0A; }
+html.light ::-webkit-scrollbar-track { background: #f1f5f9; }
+
+html.dark ::-webkit-scrollbar-thumb { 
+  background: #3f3f46; 
+  border-radius: 5px; 
+  border: 2px solid #0A0A0A; 
+}
+html.light ::-webkit-scrollbar-thumb { 
+  background: #cbd5e1; 
+  border-radius: 5px; 
+  border: 2px solid #f1f5f9;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+html.light ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-gray-50 text-slate-900 dark:bg-[#0A0A0A] dark:text-slate-200 transition-colors duration-300;
+  /* Prevent scroll chaining behavior */
+  overscroll-behavior: none;
+}
+
+/* Ensure the root element fills the viewport for consistent background */
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+}
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  @apply bg-slate-400 dark:bg-slate-500;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 2px;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+
+.button-gradient-animated {
+    background-image: linear-gradient(to right, #f472b6, #ef4444, #f59e0b, #f472b6);
+    background-size: 200% auto;
+    transition: background-position 0.5s ease;
+}
+.button-gradient-animated:hover {
+    background-position: right center;
+}
+
+.mic-recording {
+  animation: mic-pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes mic-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    color: #f87171;
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    color: #ef4444;
+  }
+}
+
+.brand-gradient-text {
+  background: linear-gradient(90deg, #f472b6, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.aurora-background::before,
+.aurora-background::after {
+  content: '';
+  position: absolute;
+  filter: blur(80px);
+  mix-blend-mode: plus-lighter;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Adjust aura colors for light mode visibility */
+html.light .aurora-background::before,
+html.light .aurora-background::after {
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+}
+
+.aurora-background::before {
+  width: 400px;
+  height: 400px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at center, #f472b6, transparent 60%);
+  --tw-translate-x-start: -20%; --tw-translate-y-start: 10%;
+  --tw-translate-x-end: 80%; --tw-translate-y-end: 90%;
+  animation: aurora 25s linear infinite alternate;
+}
+
+.aurora-background::after {
+  width: 350px;
+  height: 350px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at center, #f97316, transparent 60%);
+  --tw-translate-x-start: 90%; --tw-translate-y-start: 80%;
+  --tw-translate-x-end: 10%; --tw-translate-y-end: -10%;
+  animation: aurora 30s linear infinite alternate-reverse;
+}

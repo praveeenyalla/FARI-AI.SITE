@@ -1,0 +1,18 @@
+{
+  "name": "FARI-AI",
+  "short_name": "FARI-AI",
+  "description": "FARI-AI is an AI-powered chat application with a futuristic UI aesthetic. Engage with different AI personas in a dynamic and visually stunning interface.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
